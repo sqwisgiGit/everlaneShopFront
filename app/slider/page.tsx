@@ -1,43 +1,28 @@
-import Slider from "@/components/local/SliderTest/Slider";
-import SliderItem from "@/components/local/SliderTest/SliderItem";
+import Slider from "@/components/local/FullSlider/Slider";
+import SliderItem from "@/components/local/FullSlider/SliderItem";
 
 export default function SliderTest () {
+
+    const slides = Array(4).fill(1, 0, 4)
+
     return(
-        <Slider maxDots={4} imageNumber={10} sliderHeight={500}>
-            <SliderItem>
-                <div className="w-[282px] h-[461px] bg-black-500">
-                    Slide 1
-                </div>
-            </SliderItem>
-            <SliderItem>
-                <div className="w-[282px] h-[461px] bg-black-500">
-                    Slide 2
-                </div></SliderItem>
-            <SliderItem>
-                <div className="w-[282px] h-[461px] bg-black-500">
-                    Slide 3
-                </div></SliderItem>
-            <SliderItem>
-                <div className="w-[282px] h-[461px] bg-black-500">
-                    Slide 4
-                </div></SliderItem>
-                <SliderItem>
-                <div className="w-[282px] h-[461px] bg-black-500">
-                    Slide 1
-                </div>
-            </SliderItem>
-            <SliderItem>
-                <div className="w-[282px] h-[461px] bg-black-500">
-                    Jopa 2
-                </div></SliderItem>
-            <SliderItem>
-                <div className="w-[282px] h-[461px] bg-black-500">
-                    Slide 3
-                </div></SliderItem>
-            <SliderItem>
-                <div className="w-[282px] h-[461px] bg-black-500">
-                    Slide 4
-                </div></SliderItem>
+        <Slider imageNumber={4} sliderHeight={806}>
+                {slides.map((_, index) => {
+                    return(
+                        <SliderItem key={index}>
+                            <div className="w-[100vw] h-[695px] flex justify-center items-center gap-[74px]">
+                                <div className="flex flex-col gap-[40px]">
+                                    <p className="text400">People Are Talking</p>
+                                    <h1 className="display100 mt-[29px]">“Love this shirt! Fits perfectly and the fabric is thick without <br/> being stiff.”</h1>
+                                    <p className="text400">-- JonSnSF, <span className="underline">The Heavyweight Overshirt</span></p>
+                                </div>
+                                <div className="h-[695px] w-[530px] bg-black-500">
+
+                                </div>
+                            </div>
+                        </SliderItem>
+                    )
+                })}
         </Slider>
     )
 }

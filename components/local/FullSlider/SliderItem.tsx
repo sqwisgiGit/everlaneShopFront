@@ -8,7 +8,7 @@ interface SliderItem {
 
 const SliderItem = ({children}: SliderItem) => {
     return(
-        <div className="w-max h-full">
+        <div className="w-full h-full">
             {children}
         </div>
     )

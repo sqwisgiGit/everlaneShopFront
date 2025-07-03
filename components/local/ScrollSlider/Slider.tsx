@@ -13,7 +13,7 @@ interface Slider {
     sliderHeight: number
 }
 
-const Slider = ({children, maxDots, imageNumber, sliderHeight}: Slider) => {
+const ScrollSlider = ({children, maxDots, imageNumber, sliderHeight}: Slider) => {
     const [count, setCount] = useState(0)
     const proportion = (100/(maxDots - 1))
     const dots = Array(maxDots).fill('', 0, maxDots)
@@ -25,6 +25,8 @@ const Slider = ({children, maxDots, imageNumber, sliderHeight}: Slider) => {
                     if (count < 0) {
                         const newCount = count + 1    
                         setCount(newCount)
+                    } else {
+                        setCount(-maxDots + 1)
                     }
                 }} className="flex justify-center items-center w-[5%] z-10 h-full bg-white cursor-pointer"><LeftArrow/></div>
                 <div className="w-full flex justify-center items-center ">
@@ -36,10 +38,12 @@ const Slider = ({children, maxDots, imageNumber, sliderHeight}: Slider) => {
                     if (count > -maxDots + 1) {
                         const newCount = count - 1
                         setCount(newCount)
+                    } else {
+                        setCount(0)
                     }
                 }} className="flex justify-center items-center w-[5%] z-10 h-full bg-white cursor-pointer"><RigthArrow/></div>
             </div>
-            <div className="w-full flex justify-center items-center pt-[20px] pb-[20px] gap-[12px]">
+            <div className="w-full flex justify-center items-center mt-[30px] pt-[20px] pb-[20px] gap-[12px]">
                 {dots.map((_, index) => {
                     return(
                         <div key={index} className={`w-[7px] h-[7px] rounded-full bg-${count == -index ? 'black-500 ' : 'white-200 '} transition-colors duration-200 ease-in`}></div>
@@ -50,4 +54,4 @@ const Slider = ({children, maxDots, imageNumber, sliderHeight}: Slider) => {
     )
 }
 
-export default Slider
+export default ScrollSlider

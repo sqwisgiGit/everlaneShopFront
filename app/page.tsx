@@ -1,12 +1,14 @@
 import Button from "@/components/local/Button";
+import Slider from "@/components/local/FullSlider/Slider";
+import SliderItem from "@/components/local/FullSlider/SliderItem";
 import ImageItem from "@/components/local/ImageItem";
-import Slider from "@/components/local/SliderTest/Slider";
-import SliderItem from "@/components/local/SliderTest/SliderItem";
-import Image from "next/image";
+import ScrollSlider from "@/components/local/ScrollSlider/Slider";
+import ScrollSliderItem from "@/components/local/ScrollSlider/SliderItem";
 
 
 export default function Home() {
 
+  const slides = Array(4).fill(1, 0, 4)
   const categorys = ['SHIRTS','DENIM','TEES','PANTS','SWEATER','OUTWEAR']
   const topics = ['SHOP THE LASEST', 'SHOP YOUR FAVORITES', 'SHOP OCASSION']
   const favourites = [
@@ -75,10 +77,10 @@ export default function Home() {
             </p>
             </div>
             <div className="w-full h-[538px] flex justify-center items-center">
-              <Slider maxDots={4} imageNumber={7} sliderHeight={461}>
+              <ScrollSlider maxDots={4} imageNumber={7} sliderHeight={461}>
                 {favourites.map((item, index) => {
                   return(
-                    <SliderItem key={index}>
+                    <ScrollSliderItem key={index}>
                       <div className="w-min h-max flex flex-col items-start gap-[6px]">
                         <div className="w-[282px] h-[420px] bg-black-500"></div>
                         <div className="w-full flex justify-between items-center text200">
@@ -89,11 +91,31 @@ export default function Home() {
                           <p>{item[2]}</p>
                       </div>
                     </div>
-                    </SliderItem>
+                    </ScrollSliderItem>
                   )
                 })}
-            </Slider>
+            </ScrollSlider>
             </div>
+          </section>
+          <section className="reviews w-full h-full border-b">
+            <Slider imageNumber={4} sliderHeight={695}>
+                {slides.map((_, index) => {
+                    return(
+                        <SliderItem key={index}>
+                            <div className="w-[100vw] h-[695px] flex justify-center items-center gap-[74px]">
+                                <div className="flex flex-col gap-[40px]">
+                                    <p className="text400">People Are Talking</p>
+                                    <h1 className="display100 mt-[29px]">“Love this shirt! Fits perfectly and the fabric is thick without <br/> being stiff.”</h1>
+                                    <p className="text400">-- JonSnSF, <span className="underline">The Heavyweight Overshirt</span></p>
+                                </div>
+                                <div className="h-[695px] w-[530px] bg-black-500">
+
+                                </div>
+                            </div>
+                        </SliderItem>
+                    )
+                })}
+        </Slider>
           </section>
         </main>
       </>
