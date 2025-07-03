@@ -1,26 +1,118 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@layer components {
+    .display900 {
+        line-height: 176px;
+        font-size: 160px;
+    }
+    .display800 {
+        line-height: 84px;
+        font-size: 70px;
+    }
+    .display700 {
+        line-height: 72px;
+        font-size: 64px;
+    }
+    .display600 {
+        line-height: 72px;
+        font-size: 54px;
+    }
+    .display500 {
+        line-height: 55px;
+        font-size: 46px;
+    }
+    .display400 {
+        line-height: 48px;
+        font-size: 40px;
+    }
+    .display300 {
+        line-height: 53px;
+        font-size: 38px;
+    }
+    .display200 {
+        line-height: 40px;
+        font-size: 32px;
+    }
+    .display100 {
+        line-height: 33px;
+        font-size: 24px;
+    }
+    .text400 {
+        line-height: 24px;
+        font-size: 16px;
+    }
+    .text300 {
+        line-height: 16px;
+        font-size: 14px;
+    }
+    .text200 {
+        line-height: 16px;
+        font-size: 12px;
+    }
+    .text100 {
+        line-height: 16px;
+        font-size: 10px;
+    }
+    .centering {
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%);
+    }
+    .innerWhiteShadow {
+        box-shadow: 2px 27px 30px 8px rgba(0,0,0,0.76) inset;
+        -webkit-box-shadow: 2px 27px 30px 8px rgba(0,0,0,0.76) inset;
+        -moz-box-shadow: 2px 27px 30px 8px rgba(0,0,0,0.76) inset;
+    }
+    .mainPageAreas{
+        grid-template-columns: 42px 1fr 42px;
+        grid-template-rows: 758px 534px 534px 461px 801px 806px 976px 433px 320px;
+        grid-template-areas:
+        'comercial comercial comercial'
+        '. category .'
+        '. new .'
+        '. report .'
+        'favourites favourites favourites'
+        '. reviews .'
+        '. news .'
+        '. shares .'
+        'description description description'
+        ;
+    }
+    .comercial {
+        grid-area: comercial;
+    }
+    .category {
+        grid-area: category;
+    }
+    .new {
+        grid-area: new;
+    }
+    .report {
+        grid-area: report;
+    }
+    .favourites {
+        grid-area: favourites;
+    }
+    .reviews {
+        grid-area: reviews;
+    }
+    .news {
+        grid-area: news;
+    }
+    .shares {
+        grid-area: shares;
+    }
+    .description {
+        grid-area: description;
+    }
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@theme {
+    --color-red-special: #D0021B;
+    --color-timberwolf-special: #E6DED8;
+    --color-white-100: #F5F4F4;
+    --color-white-200: #DDDBDC;
+    --color-grey-300: #737373;
+    --color-black-400: #4C4C4B;
+    --color-black-500: #262626;
 }
