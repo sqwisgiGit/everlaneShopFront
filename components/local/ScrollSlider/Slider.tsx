@@ -20,7 +20,7 @@ const ScrollSlider = ({children, maxDots, imageNumber, sliderHeight}: Slider) =>
 
     return(
         <div className={`h-max w-full`}>
-            <div className={`w-full h-[${sliderHeight}px] flex justify-between items-center relative overflow-hidden`}>
+            <div style={{height: `${sliderHeight}px`}} className={`w-full flex justify-between items-center relative overflow-hidden`}>
                 <div onClick={() => {
                     if (count < 0) {
                         const newCount = count + 1    
@@ -46,7 +46,7 @@ const ScrollSlider = ({children, maxDots, imageNumber, sliderHeight}: Slider) =>
             <div className="w-full flex justify-center items-center mt-[30px] pt-[20px] pb-[20px] gap-[12px]">
                 {dots.map((_, index) => {
                     return(
-                        <div key={index} className={`w-[7px] h-[7px] rounded-full bg-${count == -index ? 'black-500 ' : 'white-200 '} transition-colors duration-200 ease-in`}></div>
+                        <div key={index} style={{background: `${count == -index ? 'var(--color-black-500)' : 'var(--color-white-200)'}`}} className={`w-[7px] h-[7px] rounded-full transition-colors duration-200 ease-in`}></div>
                     )
                 })}
             </div>

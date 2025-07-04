@@ -43,7 +43,7 @@ const Slider = ({children, imageNumber, sliderHeight}: Slider) => {
             <div className="w-full h-min flex justify-center items-center mt-[30px] pt-[20px] pb-[20px] gap-[12px]">
                 {dots.map((_, index) => {
                     return(
-                        <div key={index} className={`w-[7px] h-[7px] rounded-full bg-${count == -index ? 'black-500 ' : 'white-200 '} transition-colors duration-200 ease-in`}></div>
+                        <div key={index} style={{background: `${count == -index ? 'var(--color-black-500)' : 'var(--color-white-200)'}`}} className={`w-[7px] h-[7px] rounded-full transition-colors duration-200 ease-in`}></div>
                     )
                 })}
             </div>

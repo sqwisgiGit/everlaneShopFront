@@ -4,11 +4,13 @@ import SliderItem from "@/components/local/FullSlider/SliderItem";
 import ImageItem from "@/components/local/ImageItem";
 import ScrollSlider from "@/components/local/ScrollSlider/Slider";
 import ScrollSliderItem from "@/components/local/ScrollSlider/SliderItem";
+import cartButton from "@/public/UI/cartButton.svg"
 
 
 export default function Home() {
 
   const slides = Array(4).fill(1, 0, 4)
+  const usersPhotos = Array(10).fill(1, 0, 10)
   const categorys = ['SHIRTS','DENIM','TEES','PANTS','SWEATER','OUTWEAR']
   const topics = ['SHOP THE LASEST', 'SHOP YOUR FAVORITES', 'SHOP OCASSION']
   const favourites = [
@@ -97,7 +99,7 @@ export default function Home() {
             </ScrollSlider>
             </div>
           </section>
-          <section className="reviews w-full h-full border-b">
+          <section className="reviews w-full h-full">
             <Slider imageNumber={4} sliderHeight={695}>
                 {slides.map((_, index) => {
                     return(
@@ -108,14 +110,50 @@ export default function Home() {
                                     <h1 className="display100 mt-[29px]">“Love this shirt! Fits perfectly and the fabric is thick without <br/> being stiff.”</h1>
                                     <p className="text400">-- JonSnSF, <span className="underline">The Heavyweight Overshirt</span></p>
                                 </div>
-                                <div className="h-[695px] w-[530px] bg-black-500">
-
-                                </div>
+                                <div className="h-[695px] w-[530px] bg-black-500"></div>
                             </div>
                         </SliderItem>
                     )
                 })}
-        </Slider>
+            </Slider>
+          </section>
+          <section className="news flex justify-center items-center gap-[20px] text-center border-b border-t">
+            <div className="flex flex-col gap-[20px]">
+                <h1 className="display100">Our Holiday Gift Picks</h1>
+                <div className="w-[505px] h-[626px] bg-black-500"></div>
+                <div>
+                  <p className="text300 mb-[35px]">The best presents for everyone on your list.</p>
+                  <p className="text300 underline">Read More</p>
+                </div>
+            </div>
+            <div className="flex flex-col gap-[20px]">
+                <h1 className="display100">Cleaner Fashion</h1>
+                <div className="w-[505px] h-[626px] bg-black-500"></div>
+                <div>
+                  <p className="text300 mb-[35px]">See the sustainability efforts behind each of our products.</p>
+                  <p className="text300 underline">Learn More</p>
+                </div>
+            </div>
+          </section>
+          <section className="flex flex-col">
+            <div>
+              <h2 className="display200">Everlane On You</h2>
+              <div>
+                <p className="text300">Share your latest look with #EverlaneOnYou for a chance to be featured.</p>
+                <p className="text300 underline">Add Your Photo</p>
+              </div>
+            </div>
+            <ScrollSlider maxDots={}>
+              {usersPhotos.map((_, index) => {
+                return(
+                  <ScrollSliderItem key={index}>
+                    <div className="w-[225px] h-[225px] bg-black-500 flex justify-start items-start">
+                      <cartButton/>
+                    </div>
+                  </ScrollSliderItem>
+                )
+              })}
+            </ScrollSlider>
           </section>
         </main>
       </>
