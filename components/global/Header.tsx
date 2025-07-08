@@ -8,7 +8,7 @@ import Logo from '@/public/UI/Logo.svg'
 
 const Header = () => {
     return(
-        <header className={'w-full'}>
+        <header>
             <div className={'bg-black w-full flex text-white  pr-[20px] p-[7px] justify-end relative'}>
                 <span className="centering flex items-center text200 place-self-center">
                     <b>Get early access on launches and offers.</b> <span className={'underline'}>Sign Up For Texts</span> <ArrowRigth className={'w-[14px] h-[14px] ml-[4px]'}/>

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Header from "@/components/global/Header";
 import{ Abel } from 'next/font/google'
 import "./globals.css";
+import Footer from "@/components/global/Footer";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -19,12 +20,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning={true}>
       <body
         className={`${agel.className} antialiased`}
+        suppressHydrationWarning={true}
       >
         <Header/>
         {children}
+        <Footer/>
       </body>
     </html>
   );

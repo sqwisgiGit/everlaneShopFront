@@ -116,3 +116,9 @@
     --color-black-400: #4C4C4B;
     --color-black-500: #262626;
 }
+
+@keyframes show {
+    100% {
+        opacity: 1;
+    }
+}

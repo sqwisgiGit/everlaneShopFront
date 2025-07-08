@@ -1,16 +1,19 @@
 import Button from "@/components/local/Button";
-import Slider from "@/components/local/FullSlider/Slider";
-import SliderItem from "@/components/local/FullSlider/SliderItem";
+import Slider from "@/components/global/FullSlider/Slider";
+import SliderItem from "@/components/global/FullSlider/SliderItem";
 import ImageItem from "@/components/local/ImageItem";
-import ScrollSlider from "@/components/local/ScrollSlider/Slider";
-import ScrollSliderItem from "@/components/local/ScrollSlider/SliderItem";
-import cartButton from "@/public/UI/cartButton.svg"
+import ScrollSlider from "@/components/global/ScrollSlider/Slider";
+import ScrollSliderItem from "@/components/global/ScrollSlider/SliderItem";
+import CartButton from "@/public/UI/cartButton.svg"
+import Box from "@/public/UI/box.svg"
+import Recycle from "@/public/UI/recycle.svg"
+import MapPointer from "@/public/UI/mapPointer.svg"
 
 
 export default function Home() {
 
   const slides = Array(4).fill(1, 0, 4)
-  const usersPhotos = Array(10).fill(1, 0, 10)
+  const usersPhotos = Array(12).fill(1, 0, 12)
   const categorys = ['SHIRTS','DENIM','TEES','PANTS','SWEATER','OUTWEAR']
   const topics = ['SHOP THE LASEST', 'SHOP YOUR FAVORITES', 'SHOP OCASSION']
   const favourites = [
@@ -135,25 +138,40 @@ export default function Home() {
                 </div>
             </div>
           </section>
-          <section className="flex flex-col">
-            <div>
+          <section className="shares flex flex-col items-center justify-between text-center gap-[12px]">
+            <div className="flex flex-col justify-end gap-[20px] h-[50%]">
               <h2 className="display200">Everlane On You</h2>
-              <div>
+              <div className="flex flex-col gap-[4px]">
                 <p className="text300">Share your latest look with #EverlaneOnYou for a chance to be featured.</p>
                 <p className="text300 underline">Add Your Photo</p>
               </div>
             </div>
-            <ScrollSlider maxDots={}>
-              {usersPhotos.map((_, index) => {
-                return(
-                  <ScrollSliderItem key={index}>
-                    <div className="w-[225px] h-[225px] bg-black-500 flex justify-start items-start">
-                      <cartButton/>
-                    </div>
-                  </ScrollSliderItem>
-                )
-              })}
-            </ScrollSlider>
+              <ScrollSlider maxDots={12} imageNumber={12} sliderHeight={225} hasDots={false}>
+                  {usersPhotos.map((_, index) => {
+                    return(
+                      <div key={index} className="w-[225px] h-[225px] bg-black-500 flex justify-end items-start p-[10px]">
+                        <CartButton/>
+                      </div>
+                    )
+                  })}
+              </ScrollSlider>
+          </section>
+          <section className="description flex justify-center items-center text-center pb-[90px] pt-[90px] pl-[77px] pr-[77px]">
+            <div className="flex flex-col justify-center items-center pl-[50px] pr-[50px]">
+              <Box/>
+              <p className="text300 mt-[20px] mb-[4px]"><b>Complimentary Shipping</b></p>
+              <p className="text300">Enjoy free shipping on U.S. orders over $100.</p>
+            </div>
+            <div className="flex flex-col justify-center items-center pl-[50px] pr-[50px]">
+              <Recycle/>
+              <p className="text300 mt-[20px] mb-[4px]"><b>Consciously Crafted</b></p>
+              <p className="text300">Designed with you and the planet in mind.</p>
+            </div>
+            <div className="flex flex-col justify-center items-center pl-[50px] pr-[50px]">
+              <MapPointer/>
+              <p className="text300 mt-[20px] mb-[4px]"><b>Come Say Hi</b></p>
+              <p className="text300">We have 11 stores across the U.S.</p>
+            </div>
           </section>
         </main>
       </>

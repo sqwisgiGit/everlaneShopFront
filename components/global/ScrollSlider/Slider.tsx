@@ -9,11 +9,12 @@ import RigthArrow from '@/public/UI/sliderRightArrow.svg'
 interface Slider {
     children: JSX.Element[]
     maxDots: number
+    hasDots?: boolean
     imageNumber: number
     sliderHeight: number
 }
 
-const ScrollSlider = ({children, maxDots, imageNumber, sliderHeight}: Slider) => {
+const ScrollSlider = ({children, maxDots, imageNumber, sliderHeight, hasDots}: Slider) => {
     const [count, setCount] = useState(0)
     const proportion = (100/(maxDots - 1))
     const dots = Array(maxDots).fill('', 0, maxDots)
@@ -43,13 +44,13 @@ const ScrollSlider = ({children, maxDots, imageNumber, sliderHeight}: Slider) =>
                     }
                 }} className="flex justify-center items-center w-[5%] z-10 h-full bg-white cursor-pointer"><RigthArrow/></div>
             </div>
-            <div className="w-full flex justify-center items-center mt-[30px] pt-[20px] pb-[20px] gap-[12px]">
+            {hasDots ? <div className="w-full flex justify-center items-center mt-[30px] pt-[20px] pb-[20px] gap-[12px]">
                 {dots.map((_, index) => {
                     return(
                         <div key={index} style={{background: `${count == -index ? 'var(--color-black-500)' : 'var(--color-white-200)'}`}} className={`w-[7px] h-[7px] rounded-full transition-colors duration-200 ease-in`}></div>
                     )
                 })}
-            </div>
+            </div> : ''}
         </div>
     )
 }
