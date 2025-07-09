@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
-import Header from "@/components/global/Header";
-import{ Abel } from 'next/font/google'
+import Header from "@/components/global/Header/Header";
+import{ Abel, Anek_Gujarati } from 'next/font/google'
 import "./globals.css";
 import Footer from "@/components/global/Footer";
+
+import  { CounterStoreProvider } from '@/state/header-state-provider'
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -10,6 +12,11 @@ export const metadata: Metadata = {
 };
 
 const agel = Abel({
+  subsets: ['latin'],
+  weight: '400'
+})
+
+export const anekGujarati = Anek_Gujarati({
   subsets: ['latin'],
   weight: '400'
 })
@@ -25,9 +32,11 @@ export default function RootLayout({
         className={`${agel.className} antialiased`}
         suppressHydrationWarning={true}
       >
-        <Header/>
-        {children}
-        <Footer/>
+        <CounterStoreProvider>
+          <Header/>
+            {children}
+          <Footer/>
+        </CounterStoreProvider>
       </body>
     </html>
   );

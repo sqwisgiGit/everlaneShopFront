@@ -1,15 +1,18 @@
-import TabText from "../local/TabText"
+import TabText from "../../local/TabText"
 import ArrowRigth from "@/public/UI/ArrowRight.svg"
 import UsaFlag from "@/public/Flags/usa-flag.svg"
 import MagnifyingGlass from '@/public/UI/MagnifyingGlass.svg'
 import User from '@/public/UI/User.svg'
 import ShopingCart from '@/public/UI/ShoppingCartSimple.svg'
 import Logo from '@/public/UI/Logo.svg'
+import HeaderOverlay from "./HeaderOverlay"
+import Link from "next/link"
 
 const Header = () => {
     return(
-        <header>
-            <div className={'bg-black w-full flex text-white  pr-[20px] p-[7px] justify-end relative'}>
+        <>
+        <header className="z-100 relative bg-white">
+            <div className={'bg-black w-full flex text-white  pr-[20px] p-[7px] justify-end'}>
                 <span className="centering flex items-center text200 place-self-center">
                     <b>Get early access on launches and offers.</b> <span className={'underline'}>Sign Up For Texts</span> <ArrowRigth className={'w-[14px] h-[14px] ml-[4px]'}/>
                 </span>
@@ -20,10 +23,10 @@ const Header = () => {
             </div>
             <div className={`flex justify-between items-center pl-[68px] pr-[68px] border-b border-b-white-200`}>
                 <div>
-                    <TabText>Women</TabText>
-                    <TabText>Men</TabText>
-                    <TabText>About</TabText>
-                    <TabText>Everworld Stories</TabText>
+                    <Link href={'/men'}><TabText setSection={'Women'}></TabText></Link>
+                    <TabText setSection={'Men'}>Men</TabText>
+                    <TabText setSection={'About'}>About</TabText>
+                    <TabText setSection={'Everworld Stories'}>Everworld Stories</TabText>
                 </div>
                 <Logo className='centering'/>
                 <div className="flex *:m-[12px]">
@@ -44,6 +47,8 @@ const Header = () => {
                 <TabText txtColor={'red'}>Sale</TabText>
             </nav>
         </header>
+        <HeaderOverlay/>
+        </>
     )
 }
 
