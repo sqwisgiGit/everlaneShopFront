@@ -1,4 +1,4 @@
-import TabText from "../../local/TabText"
+import TabText from "../../atoms/TabText"
 import ArrowRigth from "@/public/UI/ArrowRight.svg"
 import UsaFlag from "@/public/Flags/usa-flag.svg"
 import MagnifyingGlass from '@/public/UI/MagnifyingGlass.svg'

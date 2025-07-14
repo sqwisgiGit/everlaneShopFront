@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import Header from "@/components/global/Header/Header";
+import Header from "@/components/organisms/Header/Header";
 import{ Abel, Anek_Gujarati } from 'next/font/google'
 import "./globals.css";
-import Footer from "@/components/global/Footer";
+import Footer from "@/components/organisms/Footer";
 
 import  { CounterStoreProvider } from '@/state/header-state-provider'
 

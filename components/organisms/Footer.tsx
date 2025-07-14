@@ -1,4 +1,4 @@
-import EmailInput from "../local/EmailInput"
+import EmailInput from "../molecules/EmailInput"
 
 const Footer = () => {
     return(

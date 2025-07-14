@@ -1,6 +1,6 @@
 'use client'
 
-import Overlay from "@/components/local/Overlay"
+import Overlay from "@/components/atoms/Overlay"
 
 import { useCounterStore } from "@/state/header-state-provider"
 import ManSection from "./headerSection/MenSection"
